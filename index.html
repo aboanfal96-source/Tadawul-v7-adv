@@ -125,9 +125,217 @@ html,body{height:100%;background:var(--c0);color:var(--t1);font-family:'IBM Plex
 #fc-ca{flex:1;position:relative;min-height:0}#fc-lw{position:absolute;top:0;left:0;width:100%;height:100%}#fc-cv{position:absolute;top:0;left:0;z-index:10;pointer-events:none}
 #fc-sub{height:68px;flex-shrink:0;position:relative;border-top:1px solid rgba(255,255,255,.04);background:#04060e}#fc-rsi{position:absolute;top:0;left:0}
 #fc-status{padding:3px 10px;font-size:9px;color:rgba(61,74,94,.8);border-top:1px solid rgba(255,255,255,.03);background:#080b16;display:flex;justify-content:space-between;flex-shrink:0}
+
+/* ═══════════════════════════════════════════════════
+   MOBILE RESPONSIVE — شاشات الجوال
+═══════════════════════════════════════════════════ */
+
+/* ── MOBILE BOTTOM NAV ── */
+#mob-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:800;background:var(--c1);border-top:1px solid var(--bd);height:52px;flex-direction:row;align-items:stretch}
+.mob-nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;border:none;background:none;color:var(--t2);font-family:inherit;font-size:8px;padding:4px 2px;transition:all .15s;-webkit-tap-highlight-color:transparent}
+.mob-nav-btn .icon{font-size:18px;line-height:1}
+.mob-nav-btn.on{color:var(--bl);background:rgba(74,158,255,.06)}
+.mob-nav-btn:active{background:rgba(74,158,255,.1)}
+
+/* ── MOBILE SEARCH BAR ── */
+#mob-search{display:none;background:var(--c1);border-bottom:1px solid var(--bd);padding:6px 10px;gap:6px;align-items:center;flex-shrink:0}
+#mob-search input{flex:1;background:var(--c3);border:1px solid var(--bd);border-radius:20px;color:var(--t1);padding:6px 14px;font-size:13px;font-family:inherit;outline:none;-webkit-appearance:none}
+#mob-search input:focus{border-color:var(--bl)}
+#mob-search-btn{background:var(--bl);border:none;border-radius:20px;color:#fff;padding:6px 14px;font-size:12px;font-family:inherit;cursor:pointer;white-space:nowrap}
+
+/* ── MOBILE STOCK HEADER ── */
+#mob-hdr{display:none;background:var(--c2);padding:8px 12px;border-bottom:1px solid var(--bd);flex-shrink:0}
+#mob-hdr .sym{font-size:15px;font-weight:700;color:var(--bl)}
+#mob-hdr .prc{font-size:22px;font-weight:700;font-family:'IBM Plex Mono',monospace}
+#mob-hdr .chg{font-size:11px;padding:2px 8px;border-radius:10px;font-family:'IBM Plex Mono',monospace}
+#mob-hdr .stats{display:flex;gap:12px;margin-top:4px;flex-wrap:wrap}
+#mob-hdr .stat{display:flex;flex-direction:column}
+#mob-hdr .stat-l{font-size:8px;color:var(--t3)}
+#mob-hdr .stat-v{font-size:10px;font-weight:600;font-family:'IBM Plex Mono',monospace}
+
+/* ── MOBILE TF BUTTONS ── */
+#mob-tf{display:none;flex-direction:row;background:var(--c2);border-bottom:1px solid var(--bd);padding:4px 8px;gap:4px;overflow-x:auto;scrollbar-width:none;flex-shrink:0}
+#mob-tf::-webkit-scrollbar{display:none}
+.mob-tf-btn{padding:4px 10px;border:1px solid var(--bd2);background:none;border-radius:12px;color:var(--t2);cursor:pointer;font-size:10px;font-family:inherit;white-space:nowrap;flex-shrink:0;-webkit-tap-highlight-color:transparent}
+.mob-tf-btn.on{background:var(--bl);border-color:var(--bl);color:#fff}
+
+/* ── MOBILE STRAT TABS ── */
+#mob-strat{display:none;flex-direction:row;background:var(--c1);border-bottom:1px solid var(--bd);padding:4px 8px;gap:4px;overflow-x:auto;scrollbar-width:none;flex-shrink:0}
+#mob-strat::-webkit-scrollbar{display:none}
+.mob-strat-btn{padding:4px 10px;border:1px solid var(--bd);background:none;border-radius:12px;color:var(--t2);cursor:pointer;font-size:10px;font-family:inherit;white-space:nowrap;flex-shrink:0}
+.mob-strat-btn.on{font-weight:600}
+
+/* ── MOBILE VIEWS (panels) ── */
+.mob-view{display:none;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.mob-view.on{display:block}
+
+/* ── MOBILE CHART VIEW ── */
+#mob-chart-wrap{position:relative;width:100%;background:var(--c0)}
+#mob-lw{width:100%}
+#mob-strat-cv{position:absolute;top:0;left:0;width:100%;pointer-events:none;z-index:5}
+#mob-rsi{width:100%;height:60px;display:block;background:var(--c0);border-top:1px solid var(--bd)}
+
+/* ── MOBILE WATCHLIST ── */
+.mob-wi{display:flex;align-items:center;padding:10px 14px;cursor:pointer;border-bottom:1px solid var(--bd);transition:background .08s;-webkit-tap-highlight-color:transparent;gap:8px}
+.mob-wi:active{background:var(--c3)}
+.mob-wi.on{background:var(--bl2)}
+.mob-wi-sym{font-size:12px;font-weight:700;min-width:38px;font-family:'IBM Plex Mono',monospace;color:var(--bl)}
+.mob-wi-name{font-size:12px;color:var(--t2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mob-wi-right{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.mob-wi-price{font-size:13px;font-weight:700;font-family:'IBM Plex Mono',monospace}
+.mob-wi-chg{font-size:10px;font-family:'IBM Plex Mono',monospace}
+.mob-wi-sig{font-size:8px;padding:1px 5px;border-radius:2px;font-weight:700}
+
+/* ── MOBILE SIGNALS ── */
+#mob-signals{padding:10px}
+#mob-signals .card{margin-bottom:10px}
+#mob-signals .card .cs3{font-size:15px}
+
+/* ── MOBILE AI ── */
+#mob-ai{padding:10px}
+.mob-ai-btn{width:100%;padding:14px;background:linear-gradient(135deg,rgba(167,139,250,.2),rgba(34,211,238,.1));border:1px solid rgba(167,139,250,.3);border-radius:8px;color:var(--pu);font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;margin-bottom:10px;-webkit-tap-highlight-color:transparent}
+
+/* ══ MEDIA QUERIES ══ */
+@media (max-width: 767px) {
+  /* Hide desktop elements */
+  .top{display:none !important}
+  .sbar{display:none !important}
+  .main{display:none !important}
+  .stb{display:none !important}
+  #fc-modal .fb[onclick^="fcSetTF('5y"]{display:none}
+
+  /* Show mobile elements */
+  #mob-nav{display:flex !important}
+  #mob-search{display:flex !important}
+
+  /* Body adjustments */
+  html,body{overflow:auto;height:auto;min-height:100%;min-height:100dvh}
+  body{padding-bottom:52px} /* space for bottom nav */
+
+  /* Make rb scrollable in mobile panels */
+  .rb{overflow-y:auto;-webkit-overflow-scrolling:touch;max-height:none}
+
+  /* Fullscreen chart on mobile */
+  #fc-modal{position:fixed;inset:0;z-index:9999}
+  #fc-tb{overflow-x:auto;flex-wrap:nowrap;padding:4px 6px;gap:3px}
+  #fc-tb .fb{font-size:9px;padding:3px 6px;flex-shrink:0}
+  #fc-ca{flex:1}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Tablet: 2 columns */
+  .main{grid-template-columns:160px 1fr !important}
+  .rp{display:none !important}
+}
+
+@media (max-width: 380px) {
+  /* Small phones */
+  .mob-wi-name{display:none}
+}
 </style>
 </head>
 <body>
+
+<!-- ════════════════════════════════════════════════
+     MOBILE INTERFACE — واجهة الجوال
+════════════════════════════════════════════════ -->
+
+<!-- Search Bar -->
+<div id="mob-search">
+  <input id="mob-inp" type="search" placeholder="ابحث عن سهم أو رمز..." autocomplete="off" oninput="mobSearch(this.value)" onkeypress="if(event.key==='Enter')mobSearchGo()">
+  <button id="mob-search-btn" onclick="mobSearchGo()">بحث</button>
+</div>
+
+<!-- Stock Header (shown when stock selected) -->
+<div id="mob-hdr" style="display:none">
+  <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:4px">
+    <span class="sym" id="mob-sym">—</span>
+    <span class="prc" id="mob-prc">—</span>
+    <span class="chg" id="mob-chg">—</span>
+  </div>
+  <div class="stats" id="mob-stats"></div>
+</div>
+
+<!-- Timeframe Buttons (for chart view) -->
+<div id="mob-tf">
+  <button class="mob-tf-btn" onclick="mobSetTF('5d','30m',this)">30د</button>
+  <button class="mob-tf-btn" onclick="mobSetTF('5d','60m',this)">1س</button>
+  <button class="mob-tf-btn" onclick="mobSetTF('1mo','1d',this)">شهر</button>
+  <button class="mob-tf-btn on" onclick="mobSetTF('3mo','1d',this)">3ش</button>
+  <button class="mob-tf-btn" onclick="mobSetTF('6mo','1d',this)">6ش</button>
+  <button class="mob-tf-btn" onclick="mobSetTF('1y','1d',this)">سنة</button>
+  <button class="mob-tf-btn" onclick="mobSetTF('2y','1wk',this)">2س</button>
+</div>
+
+<!-- Strategy Buttons (for chart view) -->
+<div id="mob-strat">
+  <button class="mob-strat-btn on t1" onclick="mobSetSt('classic',this)" style="color:#4a9eff;border-color:rgba(74,158,255,.3)">كلاسيك</button>
+  <button class="mob-strat-btn t2" onclick="mobSetSt('harmonic',this)" style="color:#a78bfa;border-color:rgba(167,139,250,.3)">هارمونيك</button>
+  <button class="mob-strat-btn t3" onclick="mobSetSt('elliott',this)" style="color:#f5c842;border-color:rgba(245,200,66,.3)">إيليوت</button>
+  <button class="mob-strat-btn t4" onclick="mobSetSt('ma',this)" style="color:#22d3ee;border-color:rgba(34,211,238,.3)">متوسطات</button>
+  <button class="mob-strat-btn t5" onclick="mobSetSt('osc',this)" style="color:#fb923c;border-color:rgba(251,146,60,.3)">RSI</button>
+  <button class="mob-strat-btn t7" onclick="mobSetSt('bollinger',this)" style="color:#0ecf7e;border-color:rgba(14,207,126,.3)">بولنجر</button>
+  <button class="mob-strat-btn t9" onclick="mobSetSt('vwap',this)" style="color:#c084fc;border-color:rgba(192,132,252,.3)">VWAP</button>
+  <button class="mob-strat-btn t10" onclick="mobSetSt('supdem',this)" style="color:#34d399;border-color:rgba(52,211,153,.3)">عرض/طلب</button>
+  <button class="mob-strat-btn t11" onclick="mobSetSt('liquidity',this)" style="color:#fb923c;border-color:rgba(251,146,60,.3)">سيولة</button>
+  <button class="mob-strat-btn t12" onclick="mobSetSt('fakeout',this)" style="color:#f5c842;border-color:rgba(245,200,66,.3)">كسر وهمي</button>
+</div>
+
+<!-- ══ MOBILE VIEWS ══ -->
+
+<!-- View 1: Watchlist -->
+<div class="mob-view on" id="mob-v-list">
+  <div style="padding:8px 14px 4px;display:flex;gap:8px;align-items:center;background:var(--c2);border-bottom:1px solid var(--bd)">
+    <span style="font-size:10px;color:var(--t3);font-weight:600">السوق السعودي</span>
+    <span id="mob-wcnt" style="font-size:9px;color:var(--t3)"></span>
+    <input id="mob-wsr" placeholder="فلتر..." oninput="mobBuildWL(this.value)" style="margin-right:auto;background:var(--c3);border:1px solid var(--bd);border-radius:14px;color:var(--t1);padding:3px 10px;font-size:11px;font-family:inherit;outline:none;width:100px">
+  </div>
+  <div id="mob-wl"></div>
+</div>
+
+<!-- View 2: Chart -->
+<div class="mob-view" id="mob-v-chart">
+  <div id="mob-chart-wrap">
+    <div id="mob-lw"></div>
+    <canvas id="mob-strat-cv"></canvas>
+  </div>
+  <canvas id="mob-rsi"></canvas>
+</div>
+
+<!-- View 3: Signals & Analysis -->
+<div class="mob-view" id="mob-v-signals">
+  <div id="mob-signals">
+    <div style="padding:20px;text-align:center;color:var(--t3);font-size:12px">اختر سهماً من القائمة</div>
+  </div>
+</div>
+
+<!-- View 4: AI Analysis -->
+<div class="mob-view" id="mob-v-ai">
+  <div id="mob-ai">
+    <button class="mob-ai-btn" onclick="runAI();mobShowAIResult()">✦ تحليل الذكاء الاصطناعي</button>
+    <div id="mob-ai-result"><div style="padding:20px;text-align:center;color:var(--t3);font-size:12px">اضغط الزر للحصول على تحليل AI للسهم المحدد</div></div>
+  </div>
+</div>
+
+<!-- ══ BOTTOM NAVIGATION ══ -->
+<div id="mob-nav">
+  <button class="mob-nav-btn on" id="mob-nb-list" onclick="mobShowView('list',this)">
+    <span class="icon">📋</span><span>الأسهم</span>
+  </button>
+  <button class="mob-nav-btn" id="mob-nb-chart" onclick="mobShowView('chart',this)">
+    <span class="icon">📊</span><span>الشارت</span>
+  </button>
+  <button class="mob-nav-btn" id="mob-nb-signals" onclick="mobShowView('signals',this)">
+    <span class="icon">⚡</span><span>الإشارات</span>
+  </button>
+  <button class="mob-nav-btn" id="mob-nb-ai" onclick="mobShowView('ai',this)">
+    <span class="icon">✦</span><span>AI</span>
+  </button>
+  <button class="mob-nav-btn" id="mob-nb-scan" onclick="openFullChart()">
+    <span class="icon">🔍</span><span>تحليل</span>
+  </button>
+</div>
+
 <div class="top">
   <div class="logo">TADAWUL PRO</div>
   <div id="tickers"></div>
@@ -335,11 +543,118 @@ html,body{height:100%;background:var(--c0);color:var(--t1);font-family:'IBM Plex
 </div>
 <script>
 /* ══ STOCKS ══ */
-const NAMES={'1010':'الرياض','1020':'الجزيرة','1030':'الاستثمار','1050':'الفرنسي','1060':'ساب','1080':'العربي','1120':'الراجحي','1140':'البلاد','1150':'الإنماء','1180':'الأهلي','1182':'أملاك','1183':'سهل','1210':'بنك التصدير','1211':'معادن','1212':'أسترا','1213':'نسيج','1301':'أسلاك','1302':'بوان','1303':'رؤوم','1304':'سيجما','1320':'أنابيب','1322':'أماك','2001':'كيمانول','2002':'بترو رابغ','2010':'سابك','2020':'سافكو','2030':'المصافي','2040':'الخزف','2050':'صافولا','2060':'اللجين','2070':'الكهرباء','2080':'الغاز','2090':'جبسكو','2100':'وفرة','2110':'ينساب','2120':'المتطورة','2130':'صدق','2140':'أيان','2150':'زجاج','2160':'أميانتيت','2170':'المنجم','2180':'فيبكو','2190':'سيسكو','2200':'أنابيب السعودية','2210':'نماء للكيماويات','2220':'معدنية','2222':'أرامكو','2223':'لوبريف','2230':'الكيميائية','2240':'الزامل','2250':'الجبس','2270':'سدافكو','2280':'المراعي','2281':'تنمية','2282':'نقي','2283':'الشربتلي','2290':'باحر','2300':'صناعة الورق','2310':'سبكيم','2320':'البابطين','2330':'المتقدمة','2340':'العبداللطيف','2350':'كيان','2360':'الجزيرة للكيماويات','2370':'مبكو','2380':'بتروكيم','2381':'الحفر','2382':'أديس','3001':'حلواني','3002':'أسواق المزرعة','3003':'أسمنت المدينة','3004':'أسمنت الشمالية','3005':'أسمنت أم القرى','3007':'زهرة الواحة','3008':'الحكير','3010':'أسمنت العربية','3020':'أسمنت السعودية','3030':'أسمنت القصيم','3040':'أسمنت تبوك','3050':'أسمنت الجنوبية','3060':'أسمنت ينبع','3080':'أسمنت الشرقية','3090':'أسمنت نجران','3091':'أسمنت الجوف','3092':'أسمنت حائل','4001':'العثيم','4005':'رعاية','4006':'صحة','4007':'الحمادي','4008':'ساكو','4009':'المواساة','4010':'السعودي الألماني','4011':'لازوردي','4012':'صدر','4014':'الدوائية','4020':'العقارية','4030':'البحري','4040':'سابتكو','4050':'ساسكو','4051':'شمس','4061':'أنعام','4070':'تهامة','4072':'جمجوم فارما','4080':'سناد','4100':'مكة للإنشاء','4110':'باتك','4130':'الباحة','4140':'صادرات','4150':'التصنيع','4160':'ثمار','4161':'بن داود','4162':'المهيدب','4163':'الدوا','4164':'النهدي','4170':'كنان','4180':'فتيحي','4190':'جرير','4192':'السيف غاليري','4200':'الدريس','4210':'SRMG','4220':'إكسترا','4230':'البوان','4240':'سينومي','4250':'جبل عمر','4260':'بدجت','4270':'طيبة','4280':'المملكة','4290':'صبا','4300':'دار الأركان','4310':'مدينة المعرفة','4320':'الأنابيب','4321':'الصناعات الكهربائية','4322':'رتال','4323':'سمو','4330':'الرياض ريت','4331':'الجزيرة ريت','4332':'جدوى ريت الحرمين','4333':'تعليم ريت','4334':'المعذر ريت','4335':'مشاركة ريت','4336':'ملكية ريت','4337':'سدكو ريت','4338':'الأهلي ريت','4339':'بنيان ريت','4340':'الراجحي ريت','4341':'وقف ريت','4342':'جدوى ريت السعودية','4344':'سيكو ريت','4345':'الإنماء ريت','4346':'ميفك ريت','4347':'بلدي ريت','4348':'دراية ريت','4349':'مدار ريت','4350':'مشرق ريت','5101':'أكوا باور','5110':'كاتريون','6001':'هرفي','6002':'هنقرستيشن','6004':'كاف','6010':'نادك','6012':'ريدان','6013':'التطويرية الغذائية','6014':'الآمار','6015':'أمريكانا','6040':'تبوك الزراعية','6050':'الأسماك','6060':'الشرقية للتنمية','6070':'القصب','6090':'عسير للتنمية','7010':'STC','7020':'اتحاد اتصالات','7030':'زين','7040':'مجموعة تداول','7200':'اللوجستية','7201':'رسن','7202':'مهارة','7203':'لمسات','7204':'توبي','7210':'إيزي','7220':'سيفكو','7230':'تقنيات','8010':'التعاونية','8012':'جزيرة تكافل','8020':'ملاذ','8030':'ميدغلف','8040':'أليانز','8050':'سلامة','8060':'ولاء','8070':'الدرع العربي','8100':'سايكو','8120':'الراجحي تكافل','8150':'أسيج','8160':'الأهلية','8170':'الاتحاد','8180':'الصقر','8190':'المتحدة','8200':'الإعادة','8210':'بوبا','8230':'تكافل الراجحي','8240':'جنرالي','8250':'جي آي جي','8260':'الخليجية','8270':'بروج','8280':'العربية','8300':'الوطنية','8310':'أمانة','8311':'عناية'};
-const SEC={'1':'مصارف','2':'صناعة وبتروكيماويات','3':'إسمنت ومواد بناء','4':'تنويع وخدمات','5':'طاقة','6':'غذاء وزراعة','7':'اتصالات وتقنية','8':'تأمين'};
+const NAMES={
+/* ══ مصارف ══ */
+'1010':'بنك الرياض','1020':'بنك الجزيرة','1030':'البنك السعودي للاستثمار',
+'1050':'البنك السعودي الفرنسي','1060':'البنك الأول (SAB)','1080':'البنك العربي الوطني',
+'1111':'مجموعة تداول السعودية','1120':'مصرف الراجحي','1140':'بنك البلاد',
+'1150':'مصرف الإنماء','1180':'البنك الأهلي السعودي','1182':'أملاك','1183':'سهل',
+'1201':'تكوين','1202':'ميبكو','1210':'BCI',
+'1211':'معادن','1212':'أسترا الصناعية','1213':'نسيج',
+'1214':'الحسن شاكر','1301':'أسلاك','1302':'بوان',
+'1303':'EIC','1304':'أسياد للصلب','1320':'أنابيب','1321':'أنابيب الشرق',
+'1322':'أماك','1323':'UCIC','1324':'صالح الراشد',
+/* ══ طاقة ومصافي ══ */
+'2222':'أرامكو السعودية','2030':'شركة أرامكو للخدمات النفطية',
+'2380':'بترو رابغ','4030':'الشركة السعودية للنقل البحري (البحري)',
+'2381':'الحفر العربية','2382':'أديس','5110':'شركة كهرباء السعودية',
+'2080':'الغاز والتصنيع (غازكو)','2082':'أكوا باور',
+'2081':'الخريف للطاقة والمياه','2083':'مرافق',
+/* ══ بتروكيماويات ومواد ══ */
+'2001':'كيمانول','2010':'سابك','2020':'سابك للمغذيات الزراعية',
+'2040':'الخزف السعودية','2060':'التصنيع (تاسنيه)','2090':'ينبع للبتروكيماويات (NGC)',
+'2110':'كابلات السعودية','2150':'زجاج','2160':'أميانتيت',
+'2170':'اللجين (الوجان)','2180':'فيبكو','2190':'سيسكو',
+'2200':'أنابيب السعودية','2210':'نماء للكيماويات','2220':'معدنية',
+'2223':'لوبريف','2230':'الكيميائية','2240':'سنعت (الزامل)',
+'2250':'المجموعة السعودية (SIIG)','2290':'ينساب','2300':'صناعة الورق',
+'2310':'سبكيم العالمية','2320':'البابطين','2330':'المتقدمة',
+'2340':'أرتكس (العبداللطيف)','2350':'كيان السعودية','2360':'SVCP',
+'2370':'مبكو','1304':'أسياد',
+/* ══ الإسمنت والبناء ══ */
+'3002':'أسمنت نجران','3003':'أسمنت المدينة','3004':'أسمنت الشمالية',
+'3005':'أسمنت أم القرى','3007':'زهرة الواحة','3008':'الكاثيري',
+'3010':'أسمنت العربية','3020':'أسمنت اليمامة','3030':'الشركة السعودية للإسمنت',
+'3040':'أسمنت القصيم','3050':'أسمنت الجنوبية','3060':'أسمنت ينبع',
+'3080':'الشرقية للإسمنت','3090':'أسمنت التبوك','3091':'أسمنت الجوف',
+'3092':'أسمنت الرياض',
+/* ══ صحة وصيدلة ══ */
+'2070':'سبيماكو الدوائية','4002':'المواساة','4004':'دله الصحية',
+'4005':'رعاية','4007':'الحمادي','4009':'السعودي الألماني الصحية',
+'4013':'مجموعة د. سليمان الحبيب','4014':'دار المعدات الطبية',
+'4015':'جمجوم فارما','4016':'أفالون فارما',
+'4017':'فقيه الطبية','4018':'الموسى الطبية','4019':'SMC الرعاية الصحية',
+'4163':'الدواء',
+/* ══ تنويع وخدمات ══ */
+'4001':'العثيم','4003':'إكسترا (United Electronics)',
+'4006':'أسواق المزرعة','4008':'ساكو',
+'4011':'لازوردي','4012':'الأصيل',
+'4020':'الشركة العقارية','4031':'الخدمات الأرضية السعودية (SGS)',
+'4040':'سابتكو','4050':'ساسكو','4051':'بازيم',
+'4061':'أنعام القابضة','4070':'تابركو',
+'4071':'العربية للإعلام (AEN)','4072':'مجموعة MBC',
+'4080':'سناد','4081':'النايفات','4082':'MRNA',
+'4083':'تسهيل','4084':'دراية التأمين',
+'4100':'مكة للإنشاء والتعمير','4110':'باتك',
+'4130':'درب السعودية','4140':'سيكو',
+'4141':'العمران','4142':'كابلات الرياض',
+'4143':'تالكو','4144':'رؤوم','4145':'OGC',
+'4146':'GAS','4147':'CGS','4148':'الوسائل الصناعية',
+'4160':'ثمار','4161':'بن داود',
+'4162':'المهيدب','4165':'دله البركة',
+'4170':'كنان','4180':'فتيحي',
+'4190':'مجموعة جرير للتسويق','4191':'أبو معطي',
+'4192':'السيف غاليري','4193':'نيس ون','4194':'محطة البناء',
+'4200':'الدريس للبترول','4210':'SRMG',
+'4220':'إسمنت حائل','4240':'سينومي ريتيل',
+'4250':'جبل عمر للتطوير','4260':'بدجت السعودية',
+'4261':'ذيب لتأجير السيارات','4262':'لومي للتنقل',
+'4263':'SAL للشحن الجوي','4264':'فلاي ناس',
+'4265':'شيري','4270':'طيبة للاستثمار (SPPC)',
+'4280':'المملكة القابضة','4290':'الخليج للتدريب',
+'4291':'NCLE','4292':'عطاء التعليمية',
+'4300':'دار الأركان للتطوير العقاري',
+'4320':'الأنابيب','4321':'الكهربائية السعودية',
+'4322':'رتال','4323':'سمو',
+/* ══ صناديق الريت ══ */
+'4330':'الرياض ريت','4331':'الجزيرة ريت','4332':'جدوى ريت الحرمين',
+'4333':'تعليم ريت','4334':'المعذر ريت','4335':'مشاركة ريت',
+'4336':'ملكية ريت','4337':'العزيزية ريت','4338':'الأهلي ريت',
+'4339':'دراية ريت','4340':'الراجحي ريت','4342':'جدوى ريت السعودية',
+'4344':'سدكو كابيتال ريت','4345':'الإنماء ريت للتجزئة',
+'4346':'ميفك ريت','4347':'بنيان ريت','4348':'الخبير ريت',
+'4349':'الإنماء ريت الفندقي','4350':'الاستثمار ريت',
+/* ══ غذاء وزراعة ══ */
+'2050':'صافولا','2100':'وفرة','2270':'سدافكو','2280':'المراعي',
+'2281':'تنمية','2282':'نقي',
+'6001':'حلواني إخوان','6002':'هرفي','6004':'كاتريون',
+'6010':'نادك','6012':'ريدان','6013':'DWF',
+'6014':'الآمار','6015':'أمريكانا','6016':'برجر إيزر',
+'6017':'جاهز','6018':'نادي الرياضة','6019':'المسار الشامل',
+'6020':'جاكو',
+/* ══ اتصالات وتقنية ══ */
+'7010':'اتصالات السعودية (STC)','7020':'موبايلي','7030':'زين السعودية',
+'7040':'عذيب للاتصالات (جو)','7200':'المعمر للمعلومات',
+'7202':'حلول','7203':'علم','7204':'توبي (2P)',
+/* ══ تأمين ══ */
+'8010':'التعاونية','8012':'جزيرة تكافل','8020':'ملاذ',
+'8030':'ميدغلف','8040':'أليانز السعودية','8050':'سلامة',
+'8060':'ولاء','8070':'الدرع العربي','8100':'سايكو',
+'8120':'الاتحاد الأهلية','8150':'أسيج',
+'8160':'الأهلية','8170':'الاتحاد','8180':'الصقر',
+'8190':'المتحدة','8200':'إعادة التأمين','8210':'بوبا العربية',
+'8230':'تكافل الراجحي','8240':'تشوب','8250':'GIG',
+'8260':'الخليجية','8270':'بروج','8280':'ليفا',
+'8300':'الوطنية للتأمين','8310':'أمانة','8311':'عناية',
+/* ══ خدمات متنوعة جديدة ══ */
+'1810':'سيرا','1820':'بان','1830':'ليجام للرياضة',
+'1831':'مهارة','1832':'صدر','1833':'المواسم',
+'1834':'سماسكو','1835':'تمكين',
+};
+const SEC={'1':'مصارف وخدمات مالية','2':'صناعة وبتروكيماويات','3':'إسمنت ومواد بناء','4':'تنويع وصحة وخدمات','5':'طاقة وكهرباء','6':'غذاء وزراعة','7':'اتصالات وتقنية','8':'تأمين'};
 const STKS=Object.entries(NAMES).map(([s,n])=>({sym:s,name:n,sec:SEC[s[0]]||'أخرى'}));
-const PRI=['2222','1120','2010','7010','1180','1010','1060','2280','4190','4164','2350','7030','8010','4030','3020','1150','2330','1211','5101','4161'];
-const BPX={'2222':27,'1120':83.5,'2010':70.2,'7010':44.8,'1180':33.6,'1010':25.5,'1020':18.2,'1030':34.6,'1050':42.1,'1060':53.8,'1080':28.9,'1140':34.2,'1150':18.7,'1211':28.4,'2280':58.4,'2350':38.9,'2020':52,'2050':40.6,'2110':18.4,'2220':22.8,'2240':22.1,'2270':26.4,'2281':8.6,'2282':4.8,'2330':14.2,'2340':21.8,'2370':18.6,'3020':64.2,'3030':42.8,'3040':18.2,'3060':21.4,'3080':24.6,'4001':74.2,'4030':22.1,'4050':11.8,'4100':4.8,'4161':45.2,'4163':82.4,'4164':164.2,'4190':128.4,'4192':44.6,'4210':18.4,'4220':42.2,'4240':17.8,'4250':14.2,'4300':12.6,'5101':18.6,'5110':29.6,'6001':12.4,'6004':8.6,'6010':31.4,'6015':22.8,'6040':8.2,'7010':44.8,'7020':16.4,'7030':12.6,'7040':32.4,'8010':72.4,'8020':18.4,'8030':24.6,'8050':48.6,'8060':16.4,'8100':14.6,'8120':21.4,'8150':22.8,'8160':34.6,'8300':22.6};
+const PRI=['2222','1120','2010','7010','1180','1010','1060','2280','4190','2350','7030','8010','4030','3030','1150','2330','1211','2082','5110','4013'];
+const BPX={'2222':27,'1120':83.5,'2010':70.2,'7010':44.8,'1180':33.6,'1010':25.5,'1020':18.2,'1030':34.6,'1050':42.1,'1060':53.8,'1080':28.9,'1140':34.2,'1150':18.7,'1211':28.4,'2280':58.4,'2350':38.9,'2020':52,'2050':40.6,'2110':18.4,'2220':22.8,'2240':22.1,'2270':26.4,'2281':8.6,'2282':4.8,'2330':14.2,'2340':21.8,'2370':18.6,'3020':64.2,'3030':42.8,'3040':18.2,'3060':21.4,'3080':24.6,'4001':74.2,'4030':22.1,'4050':11.8,'4100':4.8,'4161':45.2,'4163':82.4,'4164':164.2,'4190':128.4,'4192':44.6,'4210':18.4,'4220':42.2,'4240':17.8,'4250':14.2,'4300':12.6,'5101':18.6,'5110':29.6,'6001':12.4,'6004':8.6,'6010':31.4,'6015':22.8,'6040':8.2,'7010':44.8,'7020':16.4,'7030':12.6,'7040':32.4,'8010':72.4,'8020':18.4,'8030':24.6,'8050':48.6,'8060':16.4,'8100':14.6,'8120':21.4,'8150':22.8,'8160':34.6,'1111':92.0,'2082':280.0,'5110':14.5,'2070':28.4,'4002':28.6,'4004':62.4,'4009':44.8,'4013':250.0,'4015':82.4,'4031':18.6,'2381':9.2,'2382':8.4};
 const SN={classic:'كلاسيك',harmonic:'هارمونيك',elliott:'إيليوت',ma:'متوسطات',osc:'RSI',macd:'MACD',ichimoku:'إيشيموكو',bollinger:'بولنجر',vwap:'VWAP',supdem:'عرض/طلب',liquidity:'سيولة',fakeout:'كسر وهمي',stoch:'ستوكاستك'};
 const gBase=s=>BPX[s]||(10+(parseInt(s.slice(-2),10)%80));
 const rnd=(a,b)=>+(Math.random()*(b-a)+a).toFixed(4);
@@ -1371,7 +1686,403 @@ function init(){
   setTimeout(async()=>{const rest=STKS.filter(s=>!PRI.includes(s.sym)).map(s=>s.sym);for(let i=0;i<rest.length;i+=5){await Promise.allSettled(rest.slice(i,i+5).map(s=>loadStock(s)));await new Promise(r=>setTimeout(r,400));buildTopBar();buildWL(document.getElementById('wsr').value);buildStatus();buildFilter();}},4500);
   setInterval(()=>{document.getElementById('clk').textContent=new Date().toLocaleTimeString('ar-SA');buildStatus();},5000);
 }
-window.addEventListener('load',()=>requestAnimationFrame(()=>requestAnimationFrame(()=>requestAnimationFrame(init))));
+
+/* ═══════════════════════════════════════════════════════
+   MOBILE ENGINE — محرك الجوال
+   يعمل عند عرض الشاشة < 768px
+═══════════════════════════════════════════════════════ */
+
+const isMobile = () => window.innerWidth < 768;
+let _mobView = 'list';
+let _mobChart = null, _mobCandle = null, _mobVol = null;
+let _mobSeries = {s20:null,s50:null,bbu:null,bbl:null,vwap:null};
+let _mobPivLines = [];
+let _mobStratCanvas = null;
+
+/* ── MOBILE INIT ── */
+function initMobile(){
+  if(!isMobile()) return;
+  mobBuildWL('');
+  /* Load initial data */
+  setTimeout(async()=>{
+    await Promise.allSettled(PRI.slice(0,8).map(s=>loadStock(s)));
+    mobBuildWL('');
+    document.getElementById('mob-wcnt').textContent = `${G.ld.size}/${STKS.length}`;
+  }, 400);
+  setTimeout(async()=>{
+    const rest = STKS.filter(s=>!PRI.includes(s.sym)).map(s=>s.sym);
+    for(let i=0;i<rest.length;i+=6){
+      await Promise.allSettled(rest.slice(i,i+6).map(s=>loadStock(s)));
+      await new Promise(r=>setTimeout(r,300));
+      mobBuildWL(document.getElementById('mob-wsr')?.value||'');
+      document.getElementById('mob-wcnt').textContent = `${G.ld.size}/${STKS.length}`;
+    }
+  }, 3000);
+}
+
+/* ── SHOW VIEW ── */
+function mobShowView(view, btn){
+  _mobView = view;
+  /* Update nav buttons */
+  document.querySelectorAll('.mob-nav-btn').forEach(b=>b.classList.remove('on'));
+  if(btn) btn.classList.add('on');
+  /* Hide all views */
+  document.querySelectorAll('.mob-view').forEach(v=>v.classList.remove('on'));
+  document.getElementById(`mob-v-${view}`)?.classList.add('on');
+
+  const hdr = document.getElementById('mob-hdr');
+  const tf = document.getElementById('mob-tf');
+  const strat = document.getElementById('mob-strat');
+
+  if(view==='chart'){
+    /* Show chart controls */
+    if(hdr) hdr.style.display='block';
+    if(tf) tf.style.display='flex';
+    if(strat) strat.style.display='flex';
+    /* Init or resize chart */
+    if(!_mobChart && G.cans[G.sel]) initMobChart();
+    else if(_mobChart) setTimeout(mobUpdateChart, 100);
+  } else {
+    if(hdr&&view==='list') hdr.style.display='none';
+    if(tf) tf.style.display='none';
+    if(strat) strat.style.display='none';
+    if(hdr&&view!=='list'&&G.sel) hdr.style.display='block';
+  }
+
+  if(view==='signals') mobBuildSignals();
+  if(view==='ai') document.getElementById('mob-ai-result').innerHTML = document.getElementById('pn-ai')?.innerHTML || '<div style="padding:20px;text-align:center;color:var(--t3)">اضغط الزر للتحليل</div>';
+}
+
+/* ── SELECT STOCK ── */
+function mobSelStock(sym){
+  G.sel = sym;
+  /* Sync with desktop state */
+  calcSc(sym);
+  mobUpdateHeader();
+  /* If chart view, update chart */
+  if(_mobView === 'chart'){
+    if(!_mobChart) initMobChart();
+    else mobUpdateChart();
+  }
+  if(_mobView === 'signals') mobBuildSignals();
+  /* Load Yahoo if not loaded */
+  if(!G.ld.has(sym) && !G.ldg.has(sym)){
+    loadStock(sym).then(()=>{
+      mobUpdateHeader();
+      if(_mobView==='chart') mobUpdateChart();
+      if(_mobView==='signals') mobBuildSignals();
+      mobBuildWL(document.getElementById('mob-wsr')?.value||'');
+    });
+  }
+  /* Switch to chart after selection */
+  const chartBtn = document.getElementById('mob-nb-chart');
+  mobShowView('chart', chartBtn);
+  /* Update watchlist highlight */
+  document.querySelectorAll('.mob-wi').forEach(w=>w.classList.toggle('on', w.dataset.sym===sym));
+}
+
+/* ── UPDATE HEADER ── */
+function mobUpdateHeader(){
+  const sym=G.sel, p=G.pr[sym]||0, ch=G.ch[sym]||0, pc=G.pc[sym]||0;
+  const s=STKS.find(x=>x.sym===sym), ind=G.ind[sym];
+  const hdr=document.getElementById('mob-hdr');
+  if(!hdr||!p) return;
+  document.getElementById('mob-sym').textContent = `${sym} — ${s?.name||''}`;
+  document.getElementById('mob-prc').textContent = p.toFixed(2);
+  const ce=document.getElementById('mob-chg');
+  ce.textContent=`${ch>=0?'+':''}${ch.toFixed(2)} (${pc.toFixed(2)}%)`;
+  ce.className='chg '+(ch>=0?'up':'dn');
+  ce.style.background=ch>=0?'var(--ubg)':'var(--dbg)';
+  document.getElementById('mob-stats').innerHTML=`
+    <div class="stat"><span class="stat-l">فتح</span><span class="stat-v">${G.op[sym]?.toFixed(2)||'—'}</span></div>
+    <div class="stat"><span class="stat-l">أعلى</span><span class="stat-v" style="color:var(--up)">${G.hi[sym]?.toFixed(2)||'—'}</span></div>
+    <div class="stat"><span class="stat-l">أدنى</span><span class="stat-v" style="color:var(--dn)">${G.lo[sym]?.toFixed(2)||'—'}</span></div>
+    <div class="stat"><span class="stat-l">حجم</span><span class="stat-v">${fK(G.vo[sym]||0)}</span></div>
+    ${ind?`<div class="stat"><span class="stat-l">RSI</span><span class="stat-v" style="color:${ind.rsi>70?'var(--dn)':ind.rsi<30?'var(--up)':'var(--t1)'}">${ind.rsi.toFixed(1)}</span></div>`:''}
+  `;
+  hdr.style.display='block';
+}
+
+/* ── WATCHLIST ── */
+function mobBuildWL(filter=''){
+  const wl=document.getElementById('mob-wl'); if(!wl) return;
+  const secs={};
+  STKS.filter(s=>!filter||(s.sym.includes(filter)||s.name.includes(filter))).forEach(s=>{
+    if(!secs[s.sec]) secs[s.sec]=[];
+    secs[s.sec].push(s);
+  });
+  let h='';
+  Object.entries(secs).forEach(([sec,ss])=>{
+    h+=`<div style="padding:4px 14px;font-size:8px;color:var(--t3);font-weight:600;background:var(--c2);border-bottom:1px solid var(--bd);letter-spacing:.4px">${sec} (${ss.length})</div>`;
+    ss.forEach(s=>{
+      const p=G.pr[s.sym]||0, pc=G.pc[s.sym]||0, sc=G.sc[s.sym], ir=G.ld.has(s.sym);
+      const sg=sc?.main==='شراء'?{c:'sg-b',l:'شراء'}:sc?.main==='بيع'?{c:'sg-s',l:'بيع'}:{c:'sg-w',l:''};
+      const pcCol=pc>=0?'var(--up)':'var(--dn)';
+      h+=`<div class="mob-wi ${s.sym===G.sel?'on':''}" data-sym="${s.sym}" onclick="mobSelStock('${s.sym}')">
+        <span class="mob-wi-sym">${s.sym}</span>
+        <span class="mob-wi-name">${s.name}</span>
+        <div class="mob-wi-right">
+          <span class="mob-wi-price ${pc>=0?'up':'dn'}" style="${!ir?'opacity:.5':''}">${p>0?p.toFixed(2):'—'}</span>
+          <span class="mob-wi-chg" style="color:${pcCol}">${pc!==0?(pc>=0?'+':'')+pc.toFixed(2)+'%':''}</span>
+          ${ir&&sc?.main?`<span class="mob-wi-sig ${sg.c}">${sg.l}</span>`:''}
+        </div>
+      </div>`;
+    });
+  });
+  wl.innerHTML = h || '<div style="padding:20px;text-align:center;color:var(--t3)">لا نتائج</div>';
+  document.getElementById('mob-wcnt').textContent = `${G.ld.size}/${STKS.length}`;
+}
+
+/* ── SEARCH ── */
+function mobSearch(val){
+  if(!val) return;
+  const sl=document.getElementById('mob-inp');
+}
+function mobSearchGo(){
+  const val=document.getElementById('mob-inp')?.value?.trim();
+  if(!val) return;
+  const found=STKS.find(s=>s.sym===val||s.name.includes(val));
+  if(found) mobSelStock(found.sym);
+}
+
+/* ── MOBILE CHART ── */
+function initMobChart(){
+  const ct=document.getElementById('mob-lw'); if(!ct||!G.cans[G.sel]) return;
+  if(_mobChart){ try{_mobChart.remove();}catch(e){} _mobChart=null; }
+  ct.innerHTML='';
+  const H = Math.min(Math.floor(window.innerHeight*0.52), 380);
+  ct.style.height = H+'px';
+
+  _mobChart=LightweightCharts.createChart(ct,{
+    width:ct.clientWidth, height:H,
+    layout:{background:{type:'solid',color:'#04060e'},textColor:'#7a8ba8',fontFamily:"'IBM Plex Mono',monospace"},
+    grid:{vertLines:{color:'rgba(255,255,255,.025)'},horzLines:{color:'rgba(255,255,255,.025)'}},
+    crosshair:{mode:LightweightCharts.CrosshairMode.Normal},
+    rightPriceScale:{borderColor:'rgba(255,255,255,.055)',scaleMargins:{top:.05,bottom:.2},minimumWidth:52},
+    timeScale:{borderColor:'rgba(255,255,255,.055)',rightOffset:4,timeVisible:true,secondsVisible:false},
+    handleScroll:{mouseWheel:true,pressedMouseMove:true,horzTouchDrag:true,vertTouchDrag:false},
+    handleScale:{mouseWheel:true,pinch:true,axisPressedMouseMove:true},
+  });
+
+  _mobCandle=_mobChart.addCandlestickSeries({upColor:'#0ecf7e',downColor:'#f04458',borderUpColor:'#0ecf7e',borderDownColor:'#f04458',wickUpColor:'rgba(14,207,126,.6)',wickDownColor:'rgba(240,68,88,.6)'});
+  _mobVol=_mobChart.addHistogramSeries({priceFormat:{type:'volume'},priceScaleId:'',scaleMargins:{top:.88,bottom:0}});
+
+  const addL=(col,lw)=>_mobChart.addLineSeries({color:col,lineWidth:lw,priceLineVisible:false,lastValueVisible:false,crosshairMarkerVisible:false});
+  _mobSeries={
+    s20:addL('#f5c842',1), s50:addL('#a78bfa',1),
+    bbu:addL('rgba(167,139,250,.5)',1), bbl:addL('rgba(167,139,250,.5)',1),
+    vwap:addL('#22d3ee',1.5),
+  };
+
+  new ResizeObserver(()=>{
+    if(_mobChart&&ct.clientWidth>0) _mobChart.applyOptions({width:ct.clientWidth});
+    mobResizeStratCanvas();
+  }).observe(ct);
+
+  _mobChart.timeScale().subscribeVisibleTimeRangeChange(()=>requestAnimationFrame(mobDrawStrat));
+  mobUpdateChart();
+}
+
+function mobUpdateChart(){
+  if(!_mobChart||!_mobCandle) return;
+  const sym=G.sel, cs=G.cans[sym], ind=G.ind[sym];
+  if(!cs||!ind) return;
+
+  _mobCandle.setData(cs.map(c=>({time:c.time,open:c.open,high:c.high,low:c.low,close:c.close})));
+  _mobVol.setData(cs.map(c=>({time:c.time,value:c.volume,color:c.close>=c.open?'rgba(14,207,126,.12)':'rgba(240,68,88,.12)'})));
+
+  const setS=(k,d)=>{try{_mobSeries[k].setData(d);}catch(e){}};
+  setS('s20', ind.sma20?cs.map((c,i)=>ind.sma20[i]!=null?{time:c.time,value:ind.sma20[i]}:null).filter(Boolean):[]);
+  setS('s50', ind.sma50?cs.map((c,i)=>ind.sma50[i]!=null?{time:c.time,value:ind.sma50[i]}:null).filter(Boolean):[]);
+  setS('vwap', G.strat==='vwap'&&ind.vwapA?cs.map((c,i)=>({time:c.time,value:ind.vwapA[i]})):[]);
+
+  /* Pivot lines */
+  _mobPivLines.forEach(l=>{try{_mobCandle.removePriceLine(l);}catch(e){}});_mobPivLines=[];
+  if(ind.pivots){const pv=ind.pivots;
+    [{p:pv.r1,t:'R1',c:'rgba(14,207,126,.6)',s:0},{p:pv.pp,t:'PP',c:'rgba(245,200,66,.7)',s:0},{p:pv.s1,t:'S1',c:'rgba(240,68,88,.6)',s:0},{p:pv.r2,t:'R2',c:'rgba(14,207,126,.4)',s:2},{p:pv.s2,t:'S2',c:'rgba(240,68,88,.4)',s:2}].forEach(l=>{
+      try{_mobPivLines.push(_mobCandle.createPriceLine({price:l.p,color:l.c,lineWidth:l.s===0?1.5:1,lineStyle:l.s,axisLabelVisible:true,title:l.t}));}catch(e){}
+    });
+  }
+
+  _mobChart.timeScale().fitContent();
+  mobResizeStratCanvas();
+  requestAnimationFrame(()=>requestAnimationFrame(mobDrawStrat));
+  mobDrawRSI();
+}
+
+/* ── MOBILE STRATEGY OVERLAY ── */
+function mobResizeStratCanvas(){
+  const ct=document.getElementById('mob-lw');
+  const cv=document.getElementById('mob-strat-cv');
+  if(!ct||!cv) return;
+  const r=ct.getBoundingClientRect();
+  if(r.width>0){cv.width=Math.round(r.width);cv.height=Math.round(r.height);}
+}
+
+function mobDrawStrat(){
+  const cv=document.getElementById('mob-strat-cv'); if(!cv) return;
+  const W=cv.width,H=cv.height;
+  if(!W||!H||!_mobChart||!_mobCandle) return;
+  const ctx=cv.getContext('2d'); ctx.clearRect(0,0,W,H);
+  const sym=G.sel,cs=G.cans[sym],sc=G.sc[sym],ind=G.ind[sym],s=G.strat;
+  if(!cs||!ind) return;
+  const p=G.pr[sym];
+
+  const mpy=price=>{try{return _mobCandle.priceToCoordinate(price);}catch(e){return null;}};
+  const mtx=time=>{try{return _mobChart.timeScale().timeToCoordinate(time);}catch(e){return null;}};
+  const hline=(price,color,lw=1,dash=[])=>{const y=mpy(price);if(y==null||y<0||y>H)return;ctx.strokeStyle=color;ctx.lineWidth=lw;ctx.setLineDash(dash);ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();ctx.setLineDash([]);};
+  const badge=(text,color)=>{ctx.fillStyle=color;ctx.font='bold 10px IBM Plex Sans Arabic,sans-serif';ctx.textAlign='right';ctx.fillText(text,W-6,18);};
+
+  if(s==='classic'||s==='multi'){
+    if(G.hi[sym]) hline(G.hi[sym],'rgba(240,68,88,.6)',1.5,[5,3]);
+    if(G.lo[sym]) hline(G.lo[sym],'rgba(14,207,126,.6)',1.5,[5,3]);
+    if(sc?.fib){const FC=['rgba(122,139,168,.35)','rgba(245,200,66,.35)','rgba(74,158,255,.45)','rgba(167,139,250,.45)','rgba(74,158,255,.5)','rgba(245,200,66,.35)','rgba(122,139,168,.35)'];sc.fib.levels.forEach(({f,price},i)=>{hline(price,FC[i]||'rgba(200,200,200,.3)',.7,[3,3]);const y=mpy(price);if(y!=null&&y>4&&y<H-4){ctx.fillStyle=FC[i]||'rgba(200,200,200,.4)';ctx.font='7px monospace';ctx.textAlign='right';ctx.fillText(`${(f*100).toFixed(0)}%`,W-2,y-2);}});}}
+  if(s==='ma'){
+    [[ind.sma20,'#f5c842',1],[ind.sma50,'#a78bfa',1.2]].forEach(([arr,col,lw])=>{if(!arr)return;ctx.strokeStyle=col;ctx.lineWidth=lw;ctx.setLineDash([]);ctx.beginPath();let ff=true;cs.forEach((c,i)=>{if(arr[i]==null)return;const x=mtx(c.time),y=mpy(arr[i]);if(x==null||y==null)return;ff?ctx.moveTo(x,y):ctx.lineTo(x,y);ff=false;});ctx.stroke();});
+    badge(ind.ma9>ind.ma20&&ind.ma20>ind.ma50?'تقاطع ذهبي ▲':'تقاطع ميت ▼',ind.ma9>ind.ma20?'rgba(14,207,126,.9)':'rgba(240,68,88,.9)');
+  }
+  if(s==='bollinger'&&ind.bollA){
+    [[ind.bollA.map(b=>b?.u),'rgba(167,139,250,.55)'],[ind.bollA.map(b=>b?.m),'rgba(74,158,255,.4)'],[ind.bollA.map(b=>b?.l),'rgba(167,139,250,.55)']].forEach(([arr,col])=>{if(!arr)return;ctx.strokeStyle=col;ctx.lineWidth=.8;ctx.setLineDash([]);ctx.beginPath();let ff=true;cs.forEach((c,i)=>{const v=arr[i];if(v==null)return;const x=mtx(c.time),y=mpy(v);if(x==null||y==null)return;ff?ctx.moveTo(x,y):ctx.lineTo(x,y);ff=false;});ctx.stroke();});
+    if(ind.boll) badge(`BB %B:${((p-ind.boll.l)/(ind.boll.u-ind.boll.l)*100).toFixed(0)}%`,p>ind.boll.u?'rgba(240,68,88,.9)':p<ind.boll.l?'rgba(14,207,126,.9)':'rgba(245,200,66,.9)');
+  }
+  if(s==='supdem'&&sc?.sdRes) sc.sdRes.zones.forEach(z=>{const y1=mpy(z.high),y2=mpy(z.low);if(y1!=null&&y2!=null){ctx.fillStyle=z.type==='demand'?'rgba(14,207,126,.07)':'rgba(240,68,88,.07)';ctx.fillRect(0,Math.min(y1,y2),W,Math.abs(y2-y1));hline(z.high,z.type==='demand'?'rgba(14,207,126,.4)':'rgba(240,68,88,.4)',1,[3,3]);hline(z.low,z.type==='demand'?'rgba(14,207,126,.4)':'rgba(240,68,88,.4)',1,[3,3]);}});
+  if(s==='harmonic'&&sc?.hPat){
+    const hPat=sc.hPat,HCOLS=['#a78bfa','#f5c842','#4a9eff','#fb923c','#0ecf7e'];
+    const mapped=hPat.pts.map(pt=>cs[pt.i]?{time:cs[pt.i].time,p:pt.p,l:pt.l}:null).filter(Boolean).map(pt=>({x:mtx(pt.time),y:mpy(pt.p),p:pt.p,l:pt.l})).filter(pt=>pt.x!=null&&pt.y!=null);
+    if(mapped.length>=3){for(let i=0;i<mapped.length-1;i++){ctx.strokeStyle=HCOLS[i]||'#a78bfa';ctx.lineWidth=1.5;ctx.setLineDash([2,2]);ctx.beginPath();ctx.moveTo(mapped[i].x,mapped[i].y);ctx.lineTo(mapped[i+1].x,mapped[i+1].y);ctx.stroke();ctx.setLineDash([]);}
+    mapped.forEach((pt,i)=>{ctx.fillStyle=HCOLS[i]||'#a78bfa';ctx.beginPath();ctx.arc(pt.x,pt.y,4,0,Math.PI*2);ctx.fill();ctx.fillStyle='#fff';ctx.font='bold 9px sans-serif';ctx.textAlign='center';ctx.fillText(pt.l,pt.x,pt.y+(i%2?11:-6));});
+    badge(`🦋 ${hPat.name} — ${hPat.sig}`,hPat.sig==='شراء'?'rgba(14,207,126,.9)':'rgba(240,68,88,.9)');}
+  }
+  if(s==='elliott'&&sc?.ewSig?.wave!==0){
+    const ew=sc.ewSig,zz=calcZigZag(cs,3).slice(-9);
+    const WCOLS=['#3d4a5e','#4a9eff','#f04458','#4a9eff','#f04458','#4a9eff','#fb923c','#0ecf7e','#fb923c'];
+    const WLBLS=['0','①','②','③','④','⑤','A','B','C'];
+    const pts=zz.map(r=>({x:mtx(cs[r.i]?.time),y:mpy(r.p)})).filter(r=>r.x!=null&&r.y!=null);
+    for(let i=0;i<pts.length-1;i++){const isCur=i+1===Math.abs(ew.wave);ctx.strokeStyle=isCur?'#f5c842':WCOLS[i]||'#4a9eff';ctx.lineWidth=isCur?2.5:1.5;ctx.setLineDash([]);ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[i+1].x,pts[i+1].y);ctx.stroke();}
+    pts.forEach((pt,i)=>{ctx.fillStyle=i+1===Math.abs(ew.wave)?'#f5c842':WCOLS[i]||'#4a9eff';ctx.beginPath();ctx.arc(pt.x,pt.y,3.5,0,Math.PI*2);ctx.fill();ctx.fillStyle='#fff';ctx.font='bold 9px sans-serif';ctx.textAlign='center';ctx.fillText(WLBLS[i]||i,pt.x,pt.y+(i%2?11:-6));});
+    badge(`🌊 موجة ${ew.wave>0?ew.wave:'C'}`,ew.sig==='شراء'?'rgba(14,207,126,.9)':ew.sig==='بيع'?'rgba(240,68,88,.9)':'rgba(245,200,66,.9)');
+  }
+  if(sc&&H>0){
+    const sigCol=sc.main==='شراء'?'rgba(14,207,126,.9)':sc.main==='بيع'?'rgba(240,68,88,.9)':'rgba(245,200,66,.9)';
+    ctx.fillStyle=sigCol;ctx.font='bold 11px IBM Plex Sans Arabic,sans-serif';ctx.textAlign='left';
+    ctx.fillText(`${sc.main==='شراء'?'▲':sc.main==='بيع'?'▼':'◆'} ${sc.main}  ${sc.str}%`,8,18);
+  }
+}
+
+/* ── MOBILE RSI ── */
+function mobDrawRSI(){
+  const cv=document.getElementById('mob-rsi'); if(!cv) return;
+  const W=cv.parentElement?.clientWidth||window.innerWidth, H=60;
+  cv.width=W; cv.height=H;
+  const ctx=cv.getContext('2d'); ctx.clearRect(0,0,W,H);
+  const ind=G.ind[G.sel]; if(!ind?.rsiA) return;
+  const ra=ind.rsiA.slice(-100), pad={t:3,b:6,l:6,r:32};
+  [30,50,70].forEach(v=>{const y=pad.t+(1-v/100)*(H-pad.t-pad.b);ctx.strokeStyle=v===50?'rgba(255,255,255,.04)':v===30?'rgba(14,207,126,.12)':'rgba(240,68,88,.12)';ctx.lineWidth=.6;ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(W-pad.r,y);ctx.stroke();ctx.fillStyle='rgba(122,139,168,.5)';ctx.font='7px monospace';ctx.textAlign='left';ctx.fillText(v,W-pad.r+2,y+3);});
+  const lr=ra[ra.length-1]||50,rCol=lr>70?'#f04458':lr<30?'#0ecf7e':'#4a9eff',cw=(W-pad.l-pad.r)/ra.length;
+  ctx.strokeStyle=rCol;ctx.lineWidth=1.4;ctx.setLineDash([]);ctx.beginPath();
+  ra.forEach((v,i)=>{if(!v)return;const x=pad.l+i*cw+cw/2,y=pad.t+(1-v/100)*(H-pad.t-pad.b);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});ctx.stroke();
+  ctx.fillStyle=rCol;ctx.font='bold 8px monospace';ctx.fillText(lr.toFixed(0),W-pad.r+2,pad.t+8);
+}
+
+/* ── MOBILE TF & STRATEGY ── */
+function mobSetTF(range,interval,el){
+  G.tf=range;G.tfi=interval;
+  document.querySelectorAll('.mob-tf-btn').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+  const sym=G.sel; delete G.cans[sym]; G.ld.delete(sym); G.ldg.delete(sym);
+  loadStock(sym,range,interval).then(()=>{mobUpdateHeader();mobUpdateChart();mobBuildSignals();});
+}
+
+function mobSetSt(st,el){
+  G.strat=st;
+  document.querySelectorAll('.mob-strat-btn').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+  if(_mobChart) requestAnimationFrame(mobDrawStrat);
+  mobBuildSignals();
+}
+
+/* ── MOBILE SIGNALS (compact) ── */
+function mobBuildSignals(){
+  if(!isMobile()) return;
+  const sym=G.sel,p=G.pr[sym],sc=G.sc[sym],ind=G.ind[sym];
+  const el=document.getElementById('mob-signals'); if(!el) return;
+  if(!sc||!p||!ind){el.innerHTML='<div style="padding:20px;text-align:center;color:var(--t3)">اختر سهماً أولاً</div>';return;}
+  const cls=sc.main==='شراء'?'buy':sc.main==='بيع'?'sell':'neu';
+  const strc=sc.str>75?'var(--up)':sc.str>55?'var(--gd)':'var(--dn)';
+  let h=`<div class="card ${cls}" style="margin:10px">
+    <div class="ch2"><span class="cn">⚡ الإشارة — ${sc.main==='شراء'?'▲ شراء':sc.main==='بيع'?'▼ بيع':'◆ انتظار'}</span><span class="ct2" style="color:${strc}">${sc.str}%</span></div>
+    <div class="lv">
+      <div class="lvi"><div class="lvl">الدخول</div><div class="lvv ev">${p.toFixed(2)}</div></div>
+      <div class="lvi"><div class="lvl">الهدف</div><div class="lvv tv">${sc.tp}</div></div>
+      <div class="lvi"><div class="lvl">الوقف</div><div class="lvv sv">${sc.sl}</div></div>
+    </div>
+    <div class="str"><span class="slbl">قوة</span><div class="sb2"><div class="sf" style="width:${sc.str}%;background:${strc}"></div></div><span class="sval" style="color:${strc}">${sc.str}%</span><span class="rrb">R:R 2:1</span></div>
+  </div>`;
+  /* RSI gauge */
+  const rsi=ind.rsi;
+  h+=`<div class="gc" style="margin:0 10px 10px"><div class="gt">RSI(14): <span style="color:${rsi>70?'var(--dn)':rsi<30?'var(--up)':'var(--bl)'}">${rsi.toFixed(1)} — ${rsi>70?'تشبع شرائي':rsi<30?'تشبع بيعي':'محايد'}</span></div><div class="gtr"><div class="gf" style="width:${rsi}%;background:${rsi>70?'var(--dn)':rsi<30?'var(--up)':'var(--bl)'}"></div></div></div>`;
+  /* Indicators */
+  h+=`<div class="icard" style="margin:0 10px 10px"><div class="it">المؤشرات</div>
+    <div class="ir"><span class="il">MACD</span><span class="iv" style="color:${ind.macd.v>ind.macd.s?'var(--up)':'var(--dn)'}">${ind.macd.v>ind.macd.s?'صعودي ▲':'هبوطي ▼'}</span></div>
+    <div class="ir"><span class="il">MA20/50</span><span class="iv">${ind.ma20}/${ind.ma50}</span></div>
+    <div class="ir"><span class="il">VWAP</span><span class="iv" style="color:${p>ind.vwap?'var(--up)':'var(--dn)'}">${ind.vwap.toFixed(2)} (${p>ind.vwap?'فوق':'تحت'})</span></div>
+    <div class="ir"><span class="il">بولنجر</span><span class="iv">${ind.boll.l.toFixed(2)} — ${ind.boll.u.toFixed(2)}</span></div>
+  </div>`;
+  /* Pivots */
+  if(ind.pivots){const pv=ind.pivots;h+=`<div class="icard" style="margin:0 10px 10px"><div class="it">📐 الأهداف والمحاور</div>
+    <div class="ir"><span class="il">🎯 هدف ①</span><span class="iv" style="color:var(--up)">${sc.tp}</span></div>
+    <div class="ir"><span class="il">🛑 وقف خسارة</span><span class="iv" style="color:var(--dn)">${sc.sl}</span></div>
+    <div class="ir"><span class="il">R1</span><span class="iv" style="color:var(--up)">${pv.r1}</span></div>
+    <div class="ir"><span class="il">PP</span><span class="iv" style="color:var(--gd)">${pv.pp}</span></div>
+    <div class="ir"><span class="il">S1</span><span class="iv" style="color:var(--dn)">${pv.s1}</span></div>
+  </div>`;}
+  /* Fib */
+  if(sc.fib){h+=`<div class="icard" style="margin:0 10px 10px"><div class="it">📏 فيبوناتشي</div>${sc.fib.levels.map(({f,price})=>{const near=Math.abs(price-p)/p<.015;return`<div class="ir"><span class="il" style="color:${near?'var(--cy)':'var(--t2)'};font-family:monospace">${(f*100).toFixed(1)}%</span><span class="iv" style="${near?'color:var(--bl);font-weight:700':''}">${price.toFixed(2)}${near?' ◄':''}</span></div>`;}).join('')}</div>`;}
+  /* Harmonic */
+  if(sc.hPat)h+=`<div class="card harm" style="margin:0 10px 10px"><div class="ch2"><span class="cn">🦋 ${sc.hPat.name} — اكتمال ${sc.hPat.completion}%</span></div><div class="cs3 harm">${sc.hPat.sig}</div></div>`;
+  /* Elliott */
+  if(sc.ewSig?.wave)h+=`<div class="card elli" style="margin:0 10px 10px"><div class="ch2"><span class="cn">🌊 إيليوت — موجة ${sc.ewSig.wave>0?sc.ewSig.wave:'C'}</span></div><div class="cs3 elli">${sc.ewSig.sig}</div><div class="cd">${sc.ewSig.desc}</div></div>`;
+  /* Patterns */
+  if(sc.patterns?.length)h+=`<div class="icard" style="margin:0 10px 10px"><div class="it">🔍 نماذج فنية (${sc.patterns.length})</div>${sc.patterns.slice(0,4).map(pt=>`<div class="pi"><div><div class="pn2">${pt.n}</div><div class="pt2">${pt.e}</div></div><span class="ps ${pt.s}">${pt.s==='bu'?'↑ صعودي':pt.s==='be'?'↓ هبوطي':'↔ محايد'}</span></div>`).join('')}</div>`;
+  /* Candles */
+  if(sc.candles?.length)h+=`<div class="icard" style="margin:0 10px 10px"><div class="it">🕯️ نماذج الشموع</div>${sc.candles.slice(0,3).map(cn=>`<div class="pi"><div><div class="pn2">${cn.n}</div><div class="pt2">${cn.d}</div></div><span class="ps ${cn.s}">${cn.s==='bu'?'↑':cn.s==='be'?'↓':'↔'}</span></div>`).join('')}</div>`;
+  el.innerHTML=h;
+}
+
+/* ── MOBILE AI RESULT SYNC ── */
+function mobShowAIResult(){
+  setTimeout(()=>{
+    const aiEl=document.getElementById('pn-ai');
+    const mobAi=document.getElementById('mob-ai-result');
+    if(aiEl&&mobAi) mobAi.innerHTML=aiEl.innerHTML;
+  }, 500);
+  /* poll until AI finishes */
+  const poll=setInterval(()=>{
+    const aiEl=document.getElementById('pn-ai');
+    const mobAi=document.getElementById('mob-ai-result');
+    if(aiEl&&mobAi&&!aiEl.querySelector('.ai-dots')){
+      mobAi.innerHTML=aiEl.innerHTML;
+      clearInterval(poll);
+    }
+  },1000);
+}
+
+/* ── WINDOW RESIZE HANDLER ── */
+window.addEventListener('resize',()=>{
+  if(isMobile()){
+    if(_mobChart){
+      const ct=document.getElementById('mob-lw');
+      if(ct) _mobChart.applyOptions({width:ct.clientWidth});
+      mobResizeStratCanvas();
+      requestAnimationFrame(mobDrawStrat);
+    }
+  }
+});
+
+window.addEventListener('load',()=>requestAnimationFrame(()=>requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  init();
+  if(window.innerWidth<768) initMobile();
+}))));
 </script>
 </body>
 </html>
